@@ -1,10 +1,9 @@
-from setuptools import setup, Extension
-
-module = Extension("invariant_python", sources=["invariant_python.c"])
+# setup.py
+from setuptools import setup, find_packages
 
 setup(
     name="invariant_python",
-    version="0.1",
-    description="A native Python extension enforcing Design by Contract (DbC) invariants.",
-    ext_modules=[module],
+    version="0.1.0",
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
 )

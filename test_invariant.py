@@ -1,24 +1,16 @@
-import invariant_python
+from invariant_python import InvariantMeta
 
-class BankAccount:
-    def __init__(self, balance):
-        self.balance = balance
-
-    def withdraw(self, amount):
-        self.balance -= amount
-
+class MyClass(metaclass=InvariantMeta):
     def __invariant__(self):
-        print("Checking invariants...")
-        if self.balance < 0:
-            raise ValueError("Invariant failed: Balance cannot be negative.")
+        print("Checking invariant...")
 
-# Create an account with 100 balance
-account = BankAccount(100)
+    def foo(self):
+        return 42
 
-# Call withdraw(50) using wrap_method_call
-print("Withdrawing 50...")
-invariant_python.wrap_method_call(account, account.withdraw, (50,))
 
-# Call withdraw(100) which should violate the invariant
-print("Withdrawing 100...")
-invariant_python.wrap_method_call(account, account.withdraw, (100,))
+# Create an instance of MyClass
+my_instance = MyClass()
+
+# Call the foo method
+result = my_instance.foo()
+print(f"Result of foo(): {result}")

@@ -1,2 +1,17 @@
 *.so
 build/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.bak
+*.tmp
+*.out
+*.log
+*.vscode/
+*.idea/
+*.DS_Store
+*.ipynb_checkpoints/
+*.env
